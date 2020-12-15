@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Collection;
+namespace PHPCollection;
 
 use ArrayAccess;
 use Countable;
