@@ -183,6 +183,32 @@ class Collection implements Iterator, ArrayAccess, Countable
     }
 
     /**
+     * Check element exist in collection
+     * @return bool
+     */
+    public function contains($value): bool
+    {
+        foreach ($this->container as $item) {
+            if ($item === $value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Check element exist in collection
+     * @param string $pattern - pattern that the search will follow
+     * @param string $item - excepted match
+     * @return Collection
+     */
+    public function match(string $pattern, string $item): Collection
+    {
+        preg_match_all($pattern, $item, $matches);
+        return new Collection($matches[0]);
+    }
+
+    /**
      * Sort of collection container by specified order
      * @param int $order, equal 3(desc) or 4(asc)
      */
