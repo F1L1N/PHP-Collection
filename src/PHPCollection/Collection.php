@@ -197,7 +197,7 @@ class Collection implements Iterator, ArrayAccess, Countable
     }
 
     /**
-     * Check element exist in collection
+     * Check elements exist in collection and return it
      * @param string $pattern - pattern that the search will follow
      * @param string $item - excepted match
      * @return Collection
@@ -206,6 +206,17 @@ class Collection implements Iterator, ArrayAccess, Countable
     {
         preg_match_all($pattern, $item, $matches);
         return new Collection($matches[0]);
+    }
+
+    /**
+     * Check status elements exist in collection and return true/false
+     * @param string $pattern - pattern that the search will follow
+     * @param string $item - excepted match
+     * @return bool
+     */
+    public function isMatch(string $pattern, string $item): bool
+    {
+        return count(match($pattern, $item)) > 0;
     }
 
     /**
