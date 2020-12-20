@@ -209,17 +209,6 @@ class Collection implements Iterator, ArrayAccess, Countable
     }
 
     /**
-     * Check status elements exist in collection and return true/false
-     * @param string $pattern - pattern that the search will follow
-     * @param string $item - excepted match
-     * @return bool
-     */
-    public function isMatch(string $pattern, string $item): bool
-    {
-        return count(match($pattern, $item)) > 0;
-    }
-
-    /**
      * Sort of collection container by specified order
      * @param int $order, equal 3(desc) or 4(asc)
      */
